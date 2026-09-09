@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FE"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <View
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A2E"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="智能翻译悬浮窗"
+            android:textSize="13sp"
+            android:textColor="#888888"
+            android:layout_marginBottom="28dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔑  API Key"
+                android:textSize="13sp"
+                android:textColor="#666666"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/etApiKey"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="输入 API Key（可选）"
+                android:inputType="textPassword"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:background="@drawable/edit_bg"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:textColorHint="#AAAAAA" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🚀  快速启动"
+                android:textSize="13sp"
+                android:textColor="#666666"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="启动悬浮窗"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                android:backgroundTint="#7C4DFF"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:id="@+id/btnSettings"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="语言设置"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                android:backgroundTint="#536DFE"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:id="@+id/btnSquareFloat"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="📷 截屏翻译"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                android:backgroundTint="#FF6B6BEE"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎨  圆点颜色"
+                android:textSize="13sp"
+                android:textColor="#666666"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <View
+                    android:id="@+id/dotPreview"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="16dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="none"
+                    android:overScrollMode="never"
+                    android:fadeScrollbars="false">
+
+                    <LinearLayout
+                        android:id="@+id/colorContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp" />
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RGB 调色"
+                android:textSize="12sp"
+                android:textColor="#999999"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content"
+                    android:text="R"
+                    android:textColor="#F44336"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekR"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="255"
+                    android:progressTint="#F44336"
+                    android:thumbTint="#F44336" />
+
+                <TextView
+                    android:id="@+id/tvR"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="124"
+                    android:textSize="11sp"
+                    android:textColor="#888888" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content"
+                    android:text="G"
+                    android:textColor="#4CAF50"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekG"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="255"
+                    android:progressTint="#4CAF50"
+                    android:thumbTint="#4CAF50" />
+
+                <TextView
+                    android:id="@+id/tvG"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="77"
+                    android:textSize="11sp"
+                    android:textColor="#888888" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content"
+                    android:text="B"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="255"
+                    android:progressTint="#2196F3"
+                    android:thumbTint="#2196F3" />
+
+                <TextView
+                    android:id="@+id/tvB"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="255"
+                    android:textSize="11sp"
+                    android:textColor="#888888" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="透明"
+                    android:textSize="11sp"
+                    android:textColor="#999999" />
+
+                <SeekBar
+                    android:id="@+id/seekAlpha"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="255"
+                    android:progress="153"
+                    android:progressTint="#999999"
+                    android:thumbTint="#999999" />
+
+                <TextView
+                    android:id="@+id/tvAlpha"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="60%"
+                    android:textSize="11sp"
+                    android:textColor="#888888" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSaveColor"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="保存颜色"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium"
+                android:backgroundTint="#7C4DFF"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📚  选择词书"
+                android:textSize="13sp"
+                android:textColor="#666666"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="10dp" />
+
+            <Spinner
+                android:id="@+id/spinnerWordBook"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/edit_bg"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="状态：未启动"
+            android:textSize="13sp"
+            android:textColor="#AAAAAA"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</ScrollView>

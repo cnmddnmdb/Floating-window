@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/dotView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|start"
+        android:background="@drawable/dot_bg" />
+
+    <!-- 最外层 Column：拖动条 + 内容面板，上下拼接，不重叠 -->
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:elevation="16dp"
+        android:layout_gravity="top|start"
+        android:visibility="gone">
+
+        <!-- 第一行：青色拖动条 —— 纯直角矩形，不加任何圆角/clip -->
+        <View
+            android:id="@+id/dragBar"
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <!-- 第二行：黑色内容面板 —— 紧贴拖动条下方，只有底部圆角 -->
+        <LinearLayout
+            android:id="@+id/contentPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/content_panel_bg"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="6dp">
+
+            <!-- 关闭按钮行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="2dp"
+                android:paddingBottom="1dp"
+                android:gravity="center_vertical">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnClose"
+                    android:layout_width="40dp"
+                    android:layout_height="18dp"
+                    android:text="关闭"
+                    android:textSize="8sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/btn_close_bg"
+                    android:textColor="#CCFFFFFF" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etInput"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:hint="输入要翻译的文本..."
+                android:inputType="textMultiLine"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:background="@drawable/edit_transparent_bg"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#66FFFFFF"
+                android:textSize="11sp"
+                android:lineSpacingExtra="1dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp" />
+
+            <!-- 按钮行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+
+                <Button
+                    android:id="@+id/btnOneKey"
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_weight="1"
+                    android:text="一键"
+                    android:textSize="9sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/btn_translate_bg"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="3dp" />
+
+                <Button
+                    android:id="@+id/btnPaste"
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_weight="1"
+                    android:text="粘贴"
+                    android:textSize="9sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/btn_expand_bg"
+                    android:textColor="#CCFFFFFF"
+                    android:layout_marginEnd="3dp" />
+
+                <Button
+                    android:id="@+id/btnClear"
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_weight="1"
+                    android:text="清除"
+                    android:textSize="9sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/btn_close_bg"
+                    android:textColor="#CCFFFFFF" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnTranslate"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:text="翻 译"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-medium"
+                android:background="@drawable/btn_translate_bg"
+                android:textColor="#FFFFFF"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="5dp" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginBottom="5dp"
+                android:indeterminateTint="#AA7C4DFF" />
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="翻译结果将显示在这里"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:lineSpacingExtra="2dp"
+                android:padding="6dp"
+                android:background="@drawable/result_bg"
+                android:layout_marginBottom="4dp" />
+
+            <ScrollView
+                android:id="@+id/scrollWords"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+                android:scrollbars="vertical"
+                android:fadeScrollbars="false"
+                android:overScrollMode="never">
+
+                <TextView
+                    android:id="@+id/tvWords"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="10sp"
+                    android:textColor="#DDFFFFFF"
+                    android:padding="6dp"
+                    android:background="@drawable/words_bg"
+                    android:lineSpacingExtra="2dp" />
+            </ScrollView>
+
+            <!-- Home 指示条：放在深色面板内部底部，灰色小药丸 -->
+            <FrameLayout
+                android:id="@+id/bottomBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp">
+
+                <View
+                    android:layout_width="36dp"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/home_indicator_bg" />
+            </FrameLayout>
+
+        </LinearLayout><!-- end contentPanel -->
+
+    </LinearLayout><!-- end contentLayout -->
+</FrameLayout>
