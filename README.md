@@ -17,7 +17,10 @@
 
 ## 📱 界面预览
 
-（此处可自行补充截图）
+| | | |
+|:---:|:---:|:---:|
+| ![界面预览 1](部分预览图/64215DF8D34E53DE6883D8A9EA852640.jpg) | ![界面预览 2](部分预览图/67C28528E223EF7916206664C8B88F25.jpg) | ![界面预览 3](部分预览图/6F163095F59D3A70F290762B3B9FCF12.jpg) |
+| ![界面预览 4](部分预览图/BF988FB9EF25C64E72B60CF60C81F877.jpg) | ![界面预览 5](部分预览图/BFE80188FE71147734F705708346F968.jpg) | |
 
 ## 🛠️ 技术栈
 
@@ -76,6 +79,7 @@ translate-float-ball/
 │   ├── Cet4Words.kt 等 5 个          # 各词书词汇表
 │   └── SettingsActivity.kt          # 设置页
 ├── app/src/main/assets/dictionary.json  # 离线词典（816KB）
+├── 部分预览图/                      # 界面截图预览
 ├── scripts/build-apk.ps1            # 一键编译脚本
 └── app/build.gradle                 # 依赖配置
 ```
